@@ -38,14 +38,18 @@ const options = {
   TransactionDesc: 'Test',
 }
 
-transaction
-  .sendTransaction(options)
-  .then((result) => {
-    console.log('STK push initiated:', result)
-  })
-  .catch((error) => {
-    console.error('Error initiating STK push:', error.message)
-  })
+// Using async to optimize the code to Send the transaction request
+const sendTransaction = async () => {
+  try {
+    const result = await transaction.sendTransaction(options);
+    console.log('STK push initiated:', result);
+  } catch (error) {
+    console.error('Error initiating STK push:', error.message);
+  }
+};
+
+// Call the function to initiate the transaction
+sendTransaction();
 ```
 
 #### If everything is correct you should get back an object:
