@@ -35,7 +35,7 @@ export const getAccessToken = async (credentials: accessTokenTypes) => {
       statusText: 'Bad Request',
       err: 'Please provide the correct customer key and customer secret key',
     }
-    if (error.response.status === '400') return badRequest
+    if (error.response.status === 400) return badRequest
 
     let otherError: accessTokenError = {
       status: error.response ? error.response.status : 500,

@@ -1,16 +1,25 @@
 {
-  "name": "daraja-sdk",
+  "name": "daraja-api-sdk",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "ts-node src/index.ts",
     "start": "node build/index.js",
     "build": "npx tsc"
   },
-  "author": "",
+  "keywords": [
+    "daraja",
+    "sdk",
+    "safaricom",
+    "api",
+    "payment",
+    "ussd",
+    "integration"
+  ],
+  "author": "Brian Njoroge",
   "license": "ISC",
-  "description": "",
+  "description": "A JavaScript SDK for easy integration with the Safaricom Daraja API, facilitating seamless mobile payment and USSD services integration.",
   "devDependencies": {
     "nodemon": "^3.1.4",
     "ts-node": "^10.9.2",
@@ -18,5 +27,13 @@
   },
   "dependencies": {
     "axios": "^1.7.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/addyxx-h4ck1/Safaricom-Daraja-SDK"
+  },
+  "bugs": {
+    "url": "https://github.com/addyxx-h4ck1/Safaricom-Daraja-SDK/issues"
+  },
+  "homepage": "https://github.com/addyxx-h4ck1/Safaricom-Daraja-SDK#readme"
 }

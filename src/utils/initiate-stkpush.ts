@@ -5,6 +5,13 @@ import axios, {
 } from 'axios'
 import { data } from '../types/types'
 
+/**
+ * Initiates an STK push using the access token and options.
+ * @param accessToken - The access token.
+ * @param options - The options for the STK push.
+ * @returns A promise that resolves to the result of the STK push.
+ */
+
 export const initiateStkPush = async (
   accessToken: string,
   transactionDetails: data
@@ -53,9 +60,27 @@ export const initiateStkPush = async (
       transactionData,
       config
     )
-    let stkPush: any = await response
+    let stkPush: any = await { status: response.status, ...response.data }
     return stkPush
   } catch (error: any) {
-    return error
+    let otherError: any = {
+      status: error.status,
+      statusText: error.message || 'Internal server error',
+      err: 'This probably occurs due to network problems',
+    }
+    if (!error.response) return otherError
+    let badRequest: any = {
+      status: error.response.status,
+      statusText: error.response.statusText,
+      err:
+        error.response.data.errorMessage +
+        ' provide the correct customer key and customer secret key',
+    }
+    if (error.response.status === 404) return badRequest
+    let unknowErrors: any = {
+      status: error.response.status,
+      errorMessage: error.response.data.errorMessage,
+    }
+    return unknowErrors
   }
 }
