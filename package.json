@@ -4,6 +4,7 @@
   "main": "build/index.js",
   "types": "build/index.d.ts",
   "scripts": {
+    "test": "nodemon Test/example.js",
     "dev": "ts-node src/index.ts",
     "start": "node build/index.js",
     "build": "npx tsc"
@@ -26,7 +27,9 @@
     "typescript": "^5.5.3"
   },
   "dependencies": {
-    "axios": "^1.7.2"
+    "axios": "^1.7.2",
+    "daraja-api-sdk": "^1.0.1",
+    "dotenv": "^16.4.5"
   },
   "repository": {
     "type": "git",
