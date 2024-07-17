@@ -27,13 +27,14 @@ const transaction = new Transaction({
 // Change these values with your actual details...This is just for demo
 const options = {
   BusinessShortCode: '174379',
+passKey: 'Pass key can be found in the your safaricom developer dashboard'
   TransactionType: 'CustomerPayBillOnline',
   Amount: '1',
   PartyA: 'number sending money',
   PartyB: '174379',
   PhoneNumber: 'The Mobile Number to receive the STK Pin Prompt',
   CallBackURL:
-    'It is the endpoint to which the results will be sent by M-Pesa API.',
+    'It is the endpoint to which the results will be sent by M-Pesa API Party A completes or cancel the transaction',
   AccountReference: 'Test',
   TransactionDesc: 'Test',
 }
@@ -41,7 +42,7 @@ const options = {
 // Using async to optimize the code to Send the transaction request
 const sendTransaction = async () => {
   try {
-    const result = await transaction.sendTransaction(options);
+    const result = await transaction.sendTransaction(options); 
     console.log('STK push initiated:', result);
   } catch (error) {
     console.error('Error initiating STK push:', error.message);
