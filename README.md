@@ -27,7 +27,7 @@ const transaction = new Transaction({
 // Change these values with your actual details...This is just for demo
 const options = {
   BusinessShortCode: '174379',
-passKey: 'Pass key can be found in the your safaricom developer dashboard'
+  passKey: 'Pass key can be found in the your safaricom developer dashboard'
   TransactionType: 'CustomerPayBillOnline',
   Amount: '1',
   PartyA: 'number sending money',
